@@ -15,8 +15,8 @@ int main()
 {
   //3x3 matrix of characters, initially with blank spaces in each position
   char board[ROWS][COLUMNS] = {{BLANK, BLANK, BLANK},
-                               {BLANK, BLANK, BLANK},
-                               {BLANK, BLANK, BLANK}};
+    {BLANK, BLANK, BLANK},
+    {BLANK, BLANK, BLANK}};
 
   char turn = X; //Player X always goes first
   int row;
@@ -49,16 +49,17 @@ int main()
     //1-C-1.  turn should be assigned the value 'X'
     else
     {
-       board[row][column]=turn;
-   
-       if (turn=='X')
-       {
-       turn='O';
-       }
-       else
-       {
-       turn='X';
-       }
+      board[row][column]=turn;
+
+      if (turn==X)
+      {
+        turn=O;
+      }
+      else if(turn==O)
+      {
+        turn=X;
+      }
+    }   
     cout<<"\nBOARD\n-----\n";
     //TODO: Print the current board
     //Outline
@@ -67,18 +68,18 @@ int main()
     //1-A-1.  Display the value of the board at location of r and c
     //1-A-2. Display a space
     //1-B. Display an newline to move to the next row of the board
-  for (int r=0; r<ROWS; r++)
-  {
-    for (int c=0; c<COLUMNS; c++)
+    for (int r=0; r<ROWS; r++)
     {
-      cout<<board[r][c]<<" ";
+      for (int c=0; c<COLUMNS; c++)
+      {
+        cout<<board[r][c]<<" ";
+      }
+      cout<<endl;
+   
+
     }
-    cout<<endl;
-  }
+}while( playing );
 
-  }
-  }while( playing );
-
-  cout<<"Goodbye!\n";
-  return 0;
+cout<<"Goodbye!\n";
+return 0;
 }

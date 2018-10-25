@@ -29,19 +29,6 @@ int main()
     cout<<"Which column and row (0-2, or -1 for both to quit)?\n";
     cin>>column;
     cin>>row;
-    
-    if( column >= 0 && column <=2 && row >= 0 && row <= 2)
-    { 
-    board[row][column]=turn;
-    }
-    if(turn==X)
-    {
-      turn=O;
-    }
-    else if(turn==0)
-    {
-      turn=X;
-    }
     //Make sure the user isn't quitting
     if(column == QUIT && row == QUIT)
     {
@@ -60,13 +47,19 @@ int main()
     //1-B-1.  turn should be assigned the value 'O'
     //1-C.  In any other case, then...
     //1-C-1.  turn should be assigned the value 'X'
-    
+    else
+    {
+       board[row][column]=turn;
+   
+       if (turn=='X')
+       {
+       turn='O';
+       }
+       else
+       {
+       turn='X';
+       }
     cout<<"\nBOARD\n-----\n";
-    cout<<board[0][0]<<" "<<board[0][1]<<" "<<board[0][2]<<" "<<endl;
-    cout<<board[1][0]<<" "<<board[1][1]<<" "<<board[1][2]<<" "<<endl;
-    cout<<board[2][0]<<" "<<board[2][1]<<" "<<board[2][2]<<" "<<endl;
-    
-    
     //TODO: Print the current board
     //Outline
     //1. Traverse through each row, calling the current row r
@@ -74,10 +67,18 @@ int main()
     //1-A-1.  Display the value of the board at location of r and c
     //1-A-2. Display a space
     //1-B. Display an newline to move to the next row of the board
-    
+  for (int r=0; r<ROWS; r++)
+  {
+    for (int c=0; c<COLUMNS; c++)
+    {
+      cout<<board[r][c]<<" ";
+    }
+    cout<<endl;
+  }
+
+  }
   }while( playing );
 
   cout<<"Goodbye!\n";
-
   return 0;
 }

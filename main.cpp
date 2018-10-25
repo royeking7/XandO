@@ -31,7 +31,9 @@ int main()
     cin>>row;
     
     if( column >= 0 && column <=2 && row >= 0 && row <= 2)
+    { 
     board[row][column]=turn;
+    }
     if(turn==X)
     {
       turn=O;

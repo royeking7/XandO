@@ -29,7 +29,17 @@ int main()
     cout<<"Which column and row (0-2, or -1 for both to quit)?\n";
     cin>>column;
     cin>>row;
-
+    
+    if( column >= 0 && column <=2 && row >= 0 && row <= 2)
+    board[row][column]=turn;
+    if(turn==X)
+    {
+      turn=O;
+    }
+    else if(turn==0)
+    {
+      turn=X;
+    }
     //Make sure the user isn't quitting
     if(column == QUIT && row == QUIT)
     {
@@ -50,6 +60,11 @@ int main()
     //1-C-1.  turn should be assigned the value 'X'
     
     cout<<"\nBOARD\n-----\n";
+    cout<<board[0][0]<<" "<<board[0][1]<<" "<<board[0][2]<<" "<<endl;
+    cout<<board[1][0]<<" "<<board[1][1]<<" "<<board[1][2]<<" "<<endl;
+    cout<<board[2][0]<<" "<<board[2][1]<<" "<<board[2][2]<<" "<<endl;
+    
+    
     //TODO: Print the current board
     //Outline
     //1. Traverse through each row, calling the current row r
